@@ -1,750 +1,462 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Cloudbotscr - Index Homepage</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: Regna
-  * Template URL: https://bootstrapmade.com/regna-bootstrap-onepage-template/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scuti - Monetize Your Knowledge Globally</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary: #0B2540;
+            --secondary: #2D9B9B;
+            --accent: #1B7A7A;
+            --cream: #F5F1E3;
+            --dark: #0B2540;
+            --light-teal: #4DBCBC;
+        }
+        
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            color: var(--dark);
+        }
+        
+        .navbar-brand {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary) !important;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .navbar {
+            background: white;
+            border-bottom: 2px solid var(--cream);
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            font-size: 24px;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary) 0%, #164563 100%);
+            color: white;
+            padding: 100px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,60 Q300,100 600,60 T1200,60 L1200,120 L0,120 Z" fill="%232D9B9B" opacity="0.3"/></svg>') repeat-x bottom;
+            background-size: 1200px 120px;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-btn {
+            background: var(--secondary);
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s;
+            color: white;
+        }
+        
+        .cta-btn:hover {
+            background: var(--light-teal);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(45, 155, 155, 0.4);
+            color: white;
+        }
+        
+        .btn-outline-light:hover {
+            background: var(--cream);
+            color: var(--primary);
+            border-color: var(--cream);
+        }
+        
+        .feature-card {
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid var(--cream);
+            transition: all 0.3s;
+            height: 100%;
+            background: white;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(45, 155, 155, 0.15);
+            border-color: var(--secondary);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        
+        .icon-teal { background: linear-gradient(135deg, var(--secondary) 0%, var(--light-teal) 100%); color: white; }
+        .icon-navy { background: linear-gradient(135deg, var(--primary) 0%, #164563 100%); color: var(--secondary); }
+        .icon-ocean { background: linear-gradient(135deg, var(--light-teal) 0%, var(--secondary) 100%); color: white; }
+        .icon-cream { background: var(--cream); color: var(--primary); }
+        
+        .stats-section {
+            background: linear-gradient(135deg, var(--cream) 0%, #E8E4D6 100%);
+            padding: 60px 0;
+        }
+        
+        .stat-box {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+        }
+        
+        .use-case {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 4px solid var(--secondary);
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(45, 155, 155, 0.1);
+        }
+        
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 40px 0 20px;
+        }
+        
+        .btn-primary {
+            background: var(--secondary);
+            border-color: var(--secondary);
+        }
+        
+        .btn-primary:hover {
+            background: var(--light-teal);
+            border-color: var(--light-teal);
+        }
+        
+        .text-primary {
+            color: var(--secondary) !important;
+        }
+        
+        .bg-primary {
+            background: var(--secondary) !important;
+        }
+        
+        a {
+            color: var(--secondary);
+        }
+        
+        a:hover {
+            color: var(--light-teal);
+        }
+    </style>
 </head>
-
-<body class="index-page">
-
-  <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-
-      <a href="index.html" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1 class="sitename">Cloudbotscr</h1>
-      </a>
-
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="#hero" class="active">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Team</a></li>
-          <li class="dropdown"><a href="#"><span>Category</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="#">Costa Rica Property Rental</a></li>
-              <li class="dropdown"><a href="#"><span>Cloud&AI Services</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="#">Costa Rica Property Rental</a></li>
-                  <li><a href="#">Logistics Liberty Express</a></li>
-                  <li><a href="#">Home Interior Design Products</a></li>
-                  <li><a href="#">Accessories and Essentials</a></li>
-                  <li><a href="#">Home Technology Bots</a></li>
-                  <li><a href="#">Entrepreneurship Bots</a></li>
-                  <li><a href="#">Social Services Bots</a></li>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <div class="logo-icon"><i class="bi bi-water"></i></div>
+                Scuti
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="how-it-works.html">How It Works</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-primary text-white px-4 ms-2" href="#signup">Get Started</a></li>
                 </ul>
-              </li>
-              
-          </li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
-
-    </div>
-  </header>
-
-  <main class="main">
+            </div>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
-    <section id="hero" class="hero section dark-background">
-
-      <img src="assets/img/futuristic-robot-sitting-on-a-sandy-beach.webp" alt="" data-aos="fade-in">
-
-      <div class="container text-center" data-aos="fade-up" data-aos-delay="100">
-        <div class="row justify-content-center">
-          <div class="col-lg-8">
-            <h2>Welcome to CloudBotsCR</h2>
-            <p>We make Cloud solutions efficiently with AI</p>
-            <a href="#about" class="btn-get-started">Get Started</a>
-          </div>
+    <section class="hero-section">
+        <div class="container hero-content">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <h1 class="display-3 fw-bold mb-4">Monetize Your Skills From Anywhere</h1>
+                    <p class="lead mb-4">The global marketplace connecting learners, mentors, and local businesses. Trade skills, share knowledge, and earn while you explore the world.</p>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <button class="btn btn-light cta-btn" onclick="document.getElementById('signup').scrollIntoView({behavior: 'smooth'})">
+                            Start Earning Today <i class="bi bi-arrow-right"></i>
+                        </button>
+                        <a href="how-it-works.html" class="btn btn-outline-light btn-lg">Learn More</a>
+                    </div>
+                    <div class="mt-4">
+                        <small><i class="bi bi-check-circle-fill me-2"></i>No credit card required</small>
+                        <small class="ms-3"><i class="bi bi-check-circle-fill me-2"></i>Free 30-day trial</small>
+                    </div>
+                </div>
+                <div class="col-lg-5 text-center mt-5 mt-lg-0">
+                    <img src="assets/scuti/Scuti Logo Light Navy Blue.jpeg">
+                </div>
+            </div>
         </div>
-      </div>
-
-    </section><!-- /Hero Section -->
-
-    <!-- About Section -->
-    <section id="about" class="about section">
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-6 position-relative d-flex align-items-center order-lg-last" data-aos="fade-up" data-aos-delay="200">
-            <img src="assets/img/real-world endpoints-interconnected.webp" class="img-fluid flex-shrink-0" alt="">
-            <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a>
-          </div>
-
-          <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
-            <h3>About Us</h3>
-            <p>
-              At CloudBotsCR, we bring the power of artificial intelligence to everyday life in Costa Rica. From smart chatbot services for home automation and entrepreneurship to innovative tools for social services, we deliver practical tech solutions that enhances your world. Our offerings also include home design products, stylish accessories, rental property support, and Amazon courier services—making life simpler, smarter, and more connected.
-            </p>
-            <ul>
-              <li>
-                <i class="bi bi-diagram-3"></i>
-                <div>
-                  <h5>Liberty Express Santa Teresa - Courier Services</h5>
-                  <p>At Liberty Express Santa Teresa, we make it easy to shop online and receive your favorite Amazon products—right to your doorstep in the heart of Costa Rica’s jungle paradise. Whether you're ordering home interior design pieces or everyday essentials, our reliable delivery service brings the convenience of global shopping to the beaches of Santa Teresa. Enjoy fast, secure, and hassle-free delivery powered by smart logistics and local expertise.</p>
-                </div>
-              </li>
-              <li>
-                <i class="bi bi-fullscreen-exit"></i>
-                <div>
-                  <h5>Costa Rica Property Rentals - CloudBots Rental</h5>
-                  <p>Discover a smarter way to rent with our AI-powered property rental service in Costa Rica. Our cloud-based platform uses intelligent chatbots to provide real-time room availability, streamline bookings, and securely process payments—24/7. Whether you're managing a property or planning your stay, we make the entire experience faster, easier, and more efficient with the help of cutting-edge automation and personalized support.</p>
-                </div>
-              </li>
-              <li>
-                <i class="bi bi-broadcast"></i>
-                <div>
-                  <h5>CloudBots Solutions – Smarter Living with AI</h5>
-                  <p>CloudbotsCR brings intelligent automation to your fingertips through advanced chatbot solutions tailored for Costa Rica. Our AI-powered bots seamlessly integrate with home devices (IoT), making smart living more accessible and efficient. Entrepreneurs can automate customer engagement, streamline operations, and boost productivity, while social service providers benefit from responsive, always-on support systems. With CloudbotsCR, experience the future of connected living and smarter business—driven by the cloud.</p>
-                </div>
-              </li>
-            </ul>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section><!-- /About Section -->
+    </section>
 
     <!-- Stats Section -->
-    <section id="stats" class="stats section light-background">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Clients</p>
+    <section class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="stat-box">
+                        <div class="stat-number">50+</div>
+                        <div class="text-muted">Active Users</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="stat-box">
+                        <div class="stat-number">$20k</div>
+                        <div class="text-muted">Earned by Community</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="stat-box">
+                        <div class="stat-number">120+</div>
+                        <div class="text-muted">Countries</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="stat-box">
+                        <div class="stat-number">10+</div>
+                        <div class="text-muted">Partner Venues</div>
+                    </div>
+                </div>
             </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="11" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Projects</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="200" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Hours Of Support</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="2" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Workers</p>
-            </div>
-          </div><!-- End Stats Item -->
-
         </div>
+    </section>
 
-      </div>
-
-    </section><!-- /Stats Section -->
-
-    <!-- Services Section -->
-    <section id="services" class="services section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Our Services</h2>
-        <p>Empowering customers with cutting-edge Cloud, AI, and Automation solutions.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item  position-relative">
-              <div class="icon">
-                <i class="bi bi-activity"></i>
-              </div>
-              <a href="service-details.html" class="stretched-link">
-                <h3>Costa Rica Property Rental</h3>
-              </a>
-              <p>treamlines Costa Rica property rentals with AI-powered chatbots that handle room availability, bookings, and payments instantly—anytime, anywhere.</p>
+    <!-- Features Section -->
+    <section class="py-5">
+        <div class="container my-5">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold mb-3">Everything You Need to Succeed</h2>
+                <p class="lead text-muted">One platform, unlimited possibilities</p>
             </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-broadcast"></i>
-              </div>
-              <a href="service-details.html" class="stretched-link">
-                <h3>Logistics Liberty Express</h3>
-              </a>
-              <p>CloudbotsCR enhances Liberty Express logistics by automating package tracking, delivery updates, and customer support through smart AI chatbots.</p>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card">
+                        <div class="feature-icon icon-teal">
+                            <i class="bi bi-globe"></i>
+                        </div>
+                        <h4>Global Marketplace</h4>
+                        <p class="text-muted">Connect with learners and businesses across 120+ countries. Your skills have no borders.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card">
+                        <div class="feature-icon icon-navy">
+                            <i class="bi bi-currency-exchange"></i>
+                        </div>
+                        <h4>Dual Payment System</h4>
+                        <p class="text-muted">Accept tokens and cash payments. Flexible monetization that works for you.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card">
+                        <div class="feature-icon icon-ocean">
+                            <i class="bi bi-shop"></i>
+                        </div>
+                        <h4>Local Business Network</h4>
+                        <p class="text-muted">Partner with cafes, shops, and sport's venues. Drive traffic and earn commissions.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card">
+                        <div class="feature-icon icon-cream">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+                        <h4>Secure & Reliable</h4>
+                        <p class="text-muted">Enterprise-grade security powered by cloud solutions. Your data is always protected.</p>
+                    </div>
+                </div>
             </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-easel"></i>
-              </div>
-              <a href="service-details.html" class="stretched-link">
-                <h3>Home Interior Design Products</h3>
-              </a>
-              <p>CloudbotsCR simplifies the shopping experience for home interior design products by providing instant assistance, order tracking, and personalized recommendations through AI chatbots. Paired with Liberty Express Santa Teresa</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-bounding-box-circles"></i>
-              </div>
-              <a href="service-details.html" class="stretched-link">
-                <h3>Chatbots & AI Agents</h3>
-              </a>
-              <p>Automate customer interactions and enhance engagement with intelligent AI-powered chatbots and virtual assistants for Home, Entrepreneurship and Social Services, providing 24/7 support and personalized experiences.</p>
-              <a href="service-details.html" class="stretched-link"></a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-calendar4-week"></i>
-              </div>
-              <a href="service-details.html" class="stretched-link">
-                <h3>Accessories and Essentials</h3>
-              </a>
-              <p>CloudbotsCR makes buying accessories and essentials online effortless with AI chatbots that assist with product search, order status, and personalized support. Powered by Liberty Express Santa Teresa.</p>
-              <a href="service-details.html" class="stretched-link"></a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-chat-square-text"></i>
-              </div>
-              <a href="service-details.html" class="stretched-link">
-                <h3>Website Cloud Automation</h3>
-              </a>
-              <p>CloudbotsCR powers website cloud automation with intelligent chatbots that handle customer inquiries, bookings, and transactions around the clock.</p>
-              <a href="service-details.html" class="stretched-link"></a>
-            </div>
-          </div><!-- End Service Item -->
-
         </div>
+    </section>
 
-      </div>
-
-    </section><!-- /Services Section -->
-
-    <!-- Call To Action Section -->
-    <section id="call-to-action" class="call-to-action section dark-background">
-
-      <img src="assets/img/cta-bg.jpg" alt="">
-
-      <div class="container">
-
-        <div class="row" data-aos="zoom-in" data-aos-delay="100">
-          <div class="col-xl-9 text-center text-xl-start">
-            <h3>Call To Action</h3>
-            <p>Ready to Transform Your Business with Cloud & AI? Let CloudBotsCR help you streamline operations and drive innovation. Contact us today to start your digital transformation journey!</p>
-          </div>
-          <div class="col-xl-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="#">Call To Action</a>
-          </div>
+    <!-- Use Cases Section -->
+    <section class="py-5 bg-light">
+        <div class="container my-5">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold mb-3">Who Uses Scuti?</h2>
+                <p class="lead text-muted">Empowering diverse communities worldwide</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="use-case">
+                        <h5><i class="bi bi-airplane text-primary me-2"></i>Learners</h5>
+                        <p class="mb-0">Teach coding from Bali, offer photography workshops in Barcelona, or share business consulting expertise from Dubai. Earn while you travel.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="use-case">
+                        <h5><i class="bi bi-book text-primary me-2"></i>Mentors & Coaches</h5>
+                        <p class="mb-0">Scale your teaching practice globally. From yoga instructors to language tutors, reach students everywhere.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="use-case">
+                        <h5><i class="bi bi-cup-hot text-primary me-2"></i>Local Businesses</h5>
+                        <p class="mb-0">Cafes, gyms, tattoo shops, and sports venues attract qualified customers through our community network.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="use-case">
+                        <h5><i class="bi bi-building text-primary me-2"></i>Enterprise Partners</h5>
+                        <p class="mb-0">License our SaaS platform through AWS Marketplace. White-label solution for corporate training programs.</p>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-      </div>
-
-    </section><!-- /Call To Action Section -->
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Portfolio</h2>
-        <p>These are our products and services available to you:</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-
-          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-app">CloudBotsCR</li>
-            <li data-filter=".filter-product">Products</li>
-            <li data-filter=".filter-branding">Services</li>
-            <li data-filter=".filter-books">Business-to-Xryting(B2X)</li>
-          </ul><!-- End Portfolio Filters -->
-
-          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <div class="portfolio-content h-100">
-                <a href="assets/img/social-services-and-adult-care-assistance.webp" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/social-services-and-adult-care-assistance.webp" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">Social Services Bot </a></h4>
-                  <p>Enhance customer engagement with 24/7 AI-powered chatbots through personalized interactions.</p>
+    <!-- CTA Section -->
+    <section id="signup" class="py-5" style="background: linear-gradient(135deg, #0B2540 0%, #164563 100%); color: white;">
+        <div class="container my-5 text-center">
+            <h2 class="display-4 fw-bold mb-4">Ready to Start Your Journey?</h2>
+            <p class="lead mb-5">Join thousands of professionals already earning on Scuti</p>
+            <form class="row g-3 justify-content-center">
+                <div class="col-md-4">
+                    <input type="text" class="form-control form-control-lg" placeholder="Full Name">
                 </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <div class="portfolio-content h-100">
-                <a href="assets/img/premium gummies.webp" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/premium gummies.webp" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">Your Product Here</a></h4>
-                  <p>Describe your Product here!!!</p>
+                <div class="col-md-4">
+                    <input type="email" class="form-control form-control-lg" placeholder="Email Address">
                 </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <div class="portfolio-content h-100">
-                <a href="assets/img/vacation rentals.webp" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/vacation rentals.webp" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">Cabinas/Apts/Villas</a></h4>
-                  <p>Experience the beauty of Costa Rica with our mid-tier rental properties close to the beach or mountain.</p>
+                <div class="col-md-3">
+                    <button type="submit" class="btn btn-lg w-100 cta-btn">Get Started Free</button>
                 </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
-              <div class="portfolio-content h-100">
-                <a href="assets/img/uniforms for various professionals.webp" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/uniforms for various professionals.webp" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">Uniforms for Professionals </a></h4>
-                  <p>Quality Uniforms for Professionals in Every Industry! Durable, stylish, and comfortable uniforms for healthcare, hospitality, etc.</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <div class="portfolio-content h-100">
-                <a href="assets/img/marketplace-website-chatbot.webp" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/marketplace-website-chatbot.webp" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">Business & Entreprenuer Bot</a></h4>
-                  <p>Automate repetitive tasks and improve efficiency, allowing your team to focus on higher-value work.</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <div class="portfolio-content h-100">
-                <a href="assets/img/premium vapes.webp" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/premium vapes.webp" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">Your Product Here</a></h4>
-                  <p>Describe your Product here!!!</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <div class="portfolio-content h-100">
-                <a href="assets/img/Liberty Express Santa Teresa.webp" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/Liberty Express Santa Teresa.webp" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">Liberty Express Santa Teresa</a></h4>
-                  <p>Fast & Reliable Door-to-Door Delivery to get your purchases delivered straight to your door in Costa Rica.</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
-              <div class="portfolio-content h-100">
-                <a href="assets/img/premium accessories.webp" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/premium accessories.webp" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">Accessories</a></h4>
-                  <p> Explore a wide selection of lifestyle accessories designed to complement your style and everyday needs.</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <div class="portfolio-content h-100">
-                <a href="assets/img/home-technology-application.webp" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/home-technology-application.webp" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">Home Technology Bot</a></h4>
-                  <p> Boost customer satisfaction with quick responses, seamless interactions, and AI-driven personalization.</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <div class="portfolio-content h-100">
-                <a href="assets/img/premium tinctures.webp" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/premium tinctures.webp" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">Your Product Here</a></h4>
-                  <p>Describe your Product here!!!</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <div class="portfolio-content h-100">
-                <a href="assets/img/architecture and interior design.webp" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/architecture and interior design.webp" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">Your Service Here</a></h4>
-                  <p>Describe your Service here!!!</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
-              <div class="portfolio-content h-100">
-                <a href="assets/img/home design products luxurious.webp" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/home design products luxurious.webp" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">Home Design Products</a></h4>
-                  <p>Discover handpicked décor and accessories that bring beauty, comfort, and functionality to your home.</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-          </div><!-- End Portfolio Container -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Portfolio Section -->
-
-    <!-- Pricing Section -->
-    <section id="pricing" class="pricing section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Pricing</h2>
-        <p>We offer very competitive market prices depending on your customization needs.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
-            <div class="pricing-item">
-              <h3>Startup Plan</h3>
-              <p class="description">Perfect for emerging businesses, entrepreneurs, and innovators in the cloud space.</p>
-              <h4><sup></sup><span> </span></h4>
-              <a href="#" class="cta-btn">Contact us for a FREE Demo</a>
-              <p class="text-center small">No credit card required</p>
-              <ul>
-                <li><i class="bi bi-check"></i> <span>Unlock essential AI Features to kickstart your cloud/AI journey</span></li>
-                <li><i class="bi bi-check"></i> <span>Cloud Storage</span></li>
-                <li><i class="bi bi-check"></i> <span></span></li>
-                <li class="na"><i class="bi bi-x"></i> <span></span></li>
-                <li class="na"><i class="bi bi-x"></i> <span></span></li>
-                <li class="na"><i class="bi bi-x"></i> <span></span></li>
-                <li class="na"><i class="bi bi-x"></i> <span></span></li>
-              </ul>
-            </div>
-          </div><!-- End Pricing Item -->
-
-          <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="200">
-            <div class="pricing-item featured">
-              <p class="popular">Popular</p>
-              <h3>Growth Plan</h3>
-              <p class="description">Designed for growing companies aiming for the next step with cloud automation.</p>
-              <h4><sup></sup><span></span></h4>
-              <a href="#" class="cta-btn">Contact us for a FREE Demo</a>
-              <p class="text-center small">No credit card required</p>
-              <ul>
-                <li><i class="bi bi-check"></i> <span>Get advanced AI capabilities to scale your operations seamlessly.</span></li>
-                <li><i class="bi bi-check"></i> <span></span></li>
-                <li><i class="bi bi-check"></i> <span></span></li>
-                <li><i class="bi bi-check"></i> <span></span></li>
-                <li><i class="bi bi-check"></i> <span></span></li>
-                <li><i class="bi bi-check"></i> <span></span></li>
-                <li class="na"><i class="bi bi-x"></i> <span></span></li>
-              </ul>
-            </div>
-          </div><!-- End Pricing Item -->
-
-          <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="300">
-            <div class="pricing-item">
-              <h3>Enterprise Plan</h3>
-              <p class="description">Our permium offering for established enterprises.</p>
-              <h4><sup></sup><span></span></h4>
-              <a href="#" class="cta-btn">Contact us for a FREE Demo</a>
-              <p class="text-center small">No credit card required</p>
-              <ul>
-                <li><i class="bi bi-check"></i> <span>Enjoy comprehensive AI tool, customized solutions, and dedicated support.</span></li>
-                <li><i class="bi bi-check"></i> <span></span></li>
-                <li><i class="bi bi-check"></i> <span></span></li>
-                <li><i class="bi bi-check"></i> <span></span></li>
-                <li><i class="bi bi-check"></i> <span></span></li>
-                <li><i class="bi bi-check"></i> <span></span></li>
-                <li><i class="bi bi-check"></i> <span></span></li>
-              </ul>
-            </div>
-          </div><!-- End Pricing Item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Pricing Section -->
-
-    <!-- Team Section -->
-    <section id="team" class="team section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Team</h2>
-        <p>Meet our team of professionals with expertise in different areas.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Randy Cayasso</h4>
-                <span>Cloud Solutions Architect</span>
-                <p>Visionary business and techology innovator.</p>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""> <i class="bi bi-linkedin"></i> </a>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/team/" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Jane Doe</h4>
-                <span>Business Title</span>
-                <p>Expertise Description</p>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""> <i class="bi bi-linkedin"></i> </a>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/team/" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Ivan Cerdas</h4>
-                <span>Brand Creator - Oak Society</span>
-                <p>Expert on brand development and strategic positioning.</p>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""> <i class="bi bi-linkedin"></i> </a>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/team/" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Alejandra Saenz</h4>
-                <span>Product Design and Marketing - Arcana</span>
-                <p>Strategic marketing expert and product desing specialist.</p>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""> <i class="bi bi-linkedin"></i> </a>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Team Section -->
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Contact Us</h2>
-        <p>We are available for inquiries in following channels:</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="mb-4" data-aos="fade-up" data-aos-delay="200">
-          <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/place/8634+Southampton+Dr,+Miramar,+FL+33025,+EE.+UU./@25.9778897,-80.2576608,17z/data=!4m15!1m8!3m7!1s0x88d9af412cf522df:0x432fa7b4cc9d6b!2s8634+Southampton+Dr,+Miramar,+FL+33025,+EE.+UU.!3b1!8m2!3d25.9778897!4d-80.2576608!16s%2Fg%2F11c2581w2m!3m5!1s0x88d9af412cf522df:0x432fa7b4cc9d6b!8m2!3d25.9778897!4d-80.2576608!16s%2Fg%2F11c2581w2m?entry=ttu&g_ep=EgoyMDI1MDMwMi4wIKXMDSoASAFQAw%3D%3D" frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div><!-- End Google Maps -->
-
-        <div class="row gy-4">
-
-          <div class="col-lg-4">
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-              <i class="bi bi-geo-alt flex-shrink-0"></i>
-              <div>
-                <h3>Address</h3>
-                <p>Plaza del Prado, Curridabat, San Jose, 11801</p>
-              </div>
-            </div><!-- End Info Item -->
-
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-              <i class="bi bi-telephone flex-shrink-0"></i>
-              <div>
-                <h3>Call Us</h3>
-                <p>+506 8847-2858</p>
-              </div>
-            </div><!-- End Info Item -->
-
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
-              <i class="bi bi-envelope flex-shrink-0"></i>
-              <div>
-                <h3>Email Us</h3>
-                <p>cloudbotscr@gmail.com</p>
-              </div>
-            </div><!-- End Info Item -->
-
-          </div>
-
-          <div class="col-lg-8">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-              <div class="row gy-4">
-
-                <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
-                </div>
-
-                <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
-                </div>
-
-                <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                  <button type="submit">Send Message</button>
-                </div>
-
-              </div>
             </form>
-          </div><!-- End Contact Form -->
-
+            <p class="mt-3 mb-0"><small>By signing up, you agree to our Terms of Service and Privacy Policy</small></p>
         </div>
+    </section>
 
-      </div>
-
-    </section><!-- /Contact Section -->
-
-  </main>
-
-  <footer id="footer" class="footer dark-background">
-    <div class="container">
-      <h3 class="sitename">CloudBotsCR</h3>
-      <p>Automated solutions for your brand, products and services.</p>
-      <div class="social-links d-flex justify-content-center">
-        <a href=""><i class="bi bi-twitter-x"></i></a>
-        <a href=""><i class="bi bi-facebook"></i></a>
-        <a href=""><i class="bi bi-instagram"></i></a>
-        <a href=""><i class="bi bi-skype"></i></a>
-        <a href=""><i class="bi bi-linkedin"></i></a>
-      </div>
-      <div class="container">
-        <div class="copyright">
-          <span>Copyright</span> <strong class="px-1 sitename">CloudBotsCR</strong> <span>All Rights Reserved</span>
+    <!-- Regions Section -->
+    <section class="py-5">
+        <div class="container my-5">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold mb-3">Available Globally</h2>
+                <p class="lead text-muted">Launching in key markets: EU, US, Central America & Asia</p>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-3 mb-4">
+                    <div class="h1 text-primary"><i class="bi bi-geo-alt-fill"></i></div>
+                    <h5>European Union</h5>
+                    <p class="text-muted">27 countries, 50+ users</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="h1 text-primary"><i class="bi bi-geo-alt-fill"></i></div>
+                    <h5>United States</h5>
+                    <p class="text-muted">50 states, 100+ users</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="h1 text-primary"><i class="bi bi-geo-alt-fill"></i></div>
+                    <h5>Central America</h5>
+                    <p class="text-muted">7 countries, 35+ users</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="h1 text-primary"><i class="bi bi-geo-alt-fill"></i></div>
+                    <h5>Asia Region</h5>
+                    <p class="text-muted">10 countries, 40 users</p>
+                </div>
+            </div>
         </div>
-        <div class="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you've purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-          Designed by <a href="https://bootstrapmade.com/">Bootstrap Made</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5 class="mb-3"><i class="bi bi-water me-2"></i>Scuti</h5>
+                    <p>Empowering global knowledge exchange and community-driven commerce.</p>
+                    <div class="mt-3">
+                        <a href="#" class="text-white me-3"><i class="bi bi-linkedin fs-5"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-twitter fs-5"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-instagram fs-5"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-facebook fs-5"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h6 class="mb-3">Product</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="how-it-works.html" class="text-white-50">How It Works</a></li>
+                        <li><a href="pricing.html" class="text-white-50">Pricing</a></li>
+                        <li><a href="#" class="text-white-50">Features</a></li>
+                        <li><a href="#" class="text-white-50">Cloud Marketplace</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h6 class="mb-3">Company</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white-50">About Us</a></li>
+                        <li><a href="#" class="text-white-50">Careers</a></li>
+                        <li><a href="#" class="text-white-50">Blog</a></li>
+                        <li><a href="#" class="text-white-50">Press</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h6 class="mb-3">Resources</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white-50">Help Center</a></li>
+                        <li><a href="#" class="text-white-50">API Docs</a></li>
+                        <li><a href="#" class="text-white-50">Community</a></li>
+                        <li><a href="#" class="text-white-50">Partners</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h6 class="mb-3">Legal</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white-50">Privacy Policy</a></li>
+                        <li><a href="#" class="text-white-50">Terms of Service</a></li>
+                        <li><a href="#" class="text-white-50">Cookie Policy</a></li>
+                        <li><a href="#" class="text-white-50">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 bg-white">
+            <div class="text-center text-white-50">
+                <p>&copy; 2024 Scuti. All rights reserved. Powered by CloudBots.</p>
+            </div>
         </div>
-      </div>
-    </div>
-  </footer>
+    </footer>
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Preloader -->
-  <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
