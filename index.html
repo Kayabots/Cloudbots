@@ -35,16 +35,22 @@
             border-bottom: 2px solid var(--cream);
         }
         
-        .logo-icon {
-            width: 40px;
+        .logo-img {
             height: 40px;
-            background: var(--primary);
-            border-radius: 8px;
+            width: auto;
+            object-fit: contain;
+        }
+        
+        .language-switcher {
             display: flex;
+            gap: 10px;
             align-items: center;
-            justify-content: center;
-            color: var(--secondary);
-            font-size: 24px;
+        }
+        
+        .language-switcher .btn {
+            padding: 5px 15px;
+            font-size: 14px;
+            border-radius: 20px;
         }
         
         .hero-section {
@@ -93,6 +99,26 @@
             background: var(--cream);
             color: var(--primary);
             border-color: var(--cream);
+        }
+        
+        .download-btn {
+            background: white;
+            color: var(--primary);
+            border: 2px solid white;
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .download-btn:hover {
+            background: var(--secondary);
+            color: white;
+            border-color: var(--secondary);
         }
         
         .feature-card {
@@ -151,10 +177,55 @@
             box-shadow: 0 2px 10px rgba(45, 155, 155, 0.1);
         }
         
+        .about-section, .services-section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid var(--cream);
+            transition: all 0.3s;
+            height: 100%;
+        }
+        
+        .service-card:hover {
+            border-color: var(--secondary);
+            box-shadow: 0 10px 30px rgba(45, 155, 155, 0.15);
+            transform: translateY(-5px);
+        }
+        
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--secondary), var(--light-teal));
+            color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        
         footer {
             background: var(--primary);
             color: white;
             padding: 40px 0 20px;
+        }
+        
+        .footer-logo {
+            height: 50px;
+            width: auto;
+            margin-bottom: 15px;
         }
         
         .btn-primary {
@@ -182,6 +253,16 @@
         a:hover {
             color: var(--light-teal);
         }
+
+        .dropdown-menu {
+            border: 2px solid var(--cream);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--cream);
+            color: var(--primary);
+        }
     </style>
 </head>
 <body>
@@ -189,17 +270,41 @@
     <nav class="navbar navbar-expand-lg navbar-light sticky-top shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <div class="logo-icon"><i class="bi bi-water"></i></div>
+                <img src="assets/scuti/Scuti Logo Light Navy Blue.jpeg" alt="Scuti Logo" class="logo-img">
                 Scuti
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Products & Services
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#services">All Services</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#services">For Learners</a></li>
+                            <li><a class="dropdown-item" href="#services">For Mentors</a></li>
+                            <li><a class="dropdown-item" href="#services">For Businesses</a></li>
+                            <li><a class="dropdown-item" href="#services">Enterprise Solutions</a></li>
+                        </ul>
+                    </li>
                     <li class="nav-item"><a class="nav-link" href="how-it-works.html">How It Works</a></li>
                     <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+                    <li class="nav-item">
+                        <div class="language-switcher ms-3">
+                            <button class="btn btn-sm btn-outline-secondary" onclick="changeLanguage('en')">
+                                <i class="bi bi-globe"></i> EN
+                            </button>
+                            <button class="btn btn-sm btn-outline-secondary" onclick="changeLanguage('es')">
+                                <i class="bi bi-globe"></i> ES
+                            </button>
+                        </div>
+                    </li>
                     <li class="nav-item"><a class="nav-link btn btn-primary text-white px-4 ms-2" href="#signup">Get Started</a></li>
                 </ul>
             </div>
@@ -225,11 +330,11 @@
                     </div>
                 </div>
                 <div class="col-lg-5 text-center mt-5 mt-lg-0">
-                <img 
-                src="assets/scuti/Scuti Logo Light Navy Blue.jpeg" 
-                alt="Scuti Logo" 
-                class="img-fluid" 
-                style="max-width: 100%; height: auto; object-fit: contain;" >
+                    <img 
+                        src="assets/scuti/Scuti Logo Light Navy Blue.jpeg" 
+                        alt="Scuti Logo" 
+                        class="img-fluid" 
+                        style="max-width: 100%; height: auto; object-fit: contain;">
                 </div>
             </div>
         </div>
@@ -261,6 +366,114 @@
                     <div class="stat-box">
                         <div class="stat-number">10+</div>
                         <div class="text-muted">Partner Venues</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4">
+                    <h2 class="section-title">About Scuti</h2>
+                    <p class="lead mb-4">Revolutionizing how the world learns, earns, and connects.</p>
+                    <p>Scuti is a global marketplace that bridges the gap between knowledge seekers, expert mentors, and local businesses. We believe that everyone has valuable skills to share and should be able to monetize their expertise from anywhere in the world.</p>
+                    <p>Founded in 2024, our mission is to create a community-driven platform where learning meets earning, and where local businesses thrive through meaningful connections with our global network of users.</p>
+                    <div class="mt-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <i class="bi bi-check-circle-fill text-primary fs-4 me-3"></i>
+                            <div>
+                                <h5 class="mb-1">Our Vision</h5>
+                                <p class="text-muted">To empower 1 million people to monetize their knowledge by 2030.</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start mb-3">
+                            <i class="bi bi-check-circle-fill text-primary fs-4 me-3"></i>
+                            <div>
+                                <h5 class="mb-1">Our Mission</h5>
+                                <p class="text-muted">Create a sustainable ecosystem where skills, knowledge, and community commerce thrive together.</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start">
+                            <i class="bi bi-check-circle-fill text-primary fs-4 me-3"></i>
+                            <div>
+                                <h5 class="mb-1">Our Values</h5>
+                                <p class="text-muted">Transparency, Community, Innovation, and Global Impact.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="assets/scuti/Scuti Logo Light Navy Blue.jpeg" alt="About Scuti" class="img-fluid rounded shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products & Services Section -->
+    <section id="services" class="services-section" style="background: linear-gradient(135deg, var(--cream) 0%, #E8E4D6 100%);">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Products & Services</h2>
+                <p class="lead text-muted">Comprehensive solutions for learners, mentors, and businesses</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-person-video3"></i>
+                        </div>
+                        <h4>Live Learning Sessions</h4>
+                        <p class="text-muted">HD video conferencing for one-on-one or group sessions with up to 50 participants.</p>
+                        <ul class="list-unstyled mt-3">
+                            <li><small><i class="bi bi-check2 text-primary"></i> Screen sharing</small></li>
+                            <li><small><i class="bi bi-check2 text-primary"></i> Interactive whiteboard</small></li>
+                            <li><small><i class="bi bi-check2 text-primary"></i> Session recording</small></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-wallet2"></i>
+                        </div>
+                        <h4>Payment Solutions</h4>
+                        <p class="text-muted">Flexible dual payment system supporting both tokens and cash transactions globally.</p>
+                        <ul class="list-unstyled mt-3">
+                            <li><small><i class="bi bi-check2 text-primary"></i> Instant transfers</small></li>
+                            <li><small><i class="bi bi-check2 text-primary"></i> Multi-currency</small></li>
+                            <li><small><i class="bi bi-check2 text-primary"></i> Low fees (2.9%)</small></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-shop-window"></i>
+                        </div>
+                        <h4>Venue Partnerships</h4>
+                        <p class="text-muted">Connect with local businesses for in-person sessions and drive foot traffic.</p>
+                        <ul class="list-unstyled mt-3">
+                            <li><small><i class="bi bi-check2 text-primary"></i> GPS check-in</small></li>
+                            <li><small><i class="bi bi-check2 text-primary"></i> Analytics dashboard</small></li>
+                            <li><small><i class="bi bi-check2 text-primary"></i> Commission tracking</small></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-building"></i>
+                        </div>
+                        <h4>Enterprise Solutions</h4>
+                        <p class="text-muted">White-label SaaS platform available through AWS Marketplace for organizations.</p>
+                        <ul class="list-unstyled mt-3">
+                            <li><small><i class="bi bi-check2 text-primary"></i> Custom branding</small></li>
+                            <li><small><i class="bi bi-check2 text-primary"></i> API access</small></li>
+                            <li><small><i class="bi bi-check2 text-primary"></i> Dedicated support</small></li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -326,7 +539,7 @@
                 <div class="col-lg-6 mb-4">
                     <div class="use-case">
                         <h5><i class="bi bi-airplane text-primary me-2"></i>Learners</h5>
-                        <p class="mb-0">Teach coding from Bali, offer photography workshops in Barcelona, or share business consulting expertise from Dubai. Earn while you travel.</p>
+                        <p class="mb-0">Learn new skills from Bali, take photography workshops in Barcelona, or get business consulting from Dubai. Learn while you explore.</p>
                     </div>
                 </div>
                 <div class="col-lg-6 mb-4">
@@ -356,18 +569,44 @@
         <div class="container my-5 text-center">
             <h2 class="display-4 fw-bold mb-4">Ready to Start Your Journey?</h2>
             <p class="lead mb-5">Join thousands of professionals already earning on Scuti</p>
-            <form class="row g-3 justify-content-center">
-                <div class="col-md-4">
-                    <input type="text" class="form-control form-control-lg" placeholder="Full Name">
+            
+            <!-- Download App Buttons -->
+            <div class="mb-5">
+                <h4 class="mb-4">Download Scuti App</h4>
+                <div class="d-flex gap-3 justify-content-center flex-wrap">
+                    <a href="#" class="download-btn">
+                        <i class="bi bi-apple fs-4"></i>
+                        <div class="text-start">
+                            <small style="font-size: 11px; display: block;">Download on the</small>
+                            <strong>App Store</strong>
+                        </div>
+                    </a>
+                    <a href="#" class="download-btn">
+                        <i class="bi bi-google-play fs-4"></i>
+                        <div class="text-start">
+                            <small style="font-size: 11px; display: block;">Get it on</small>
+                            <strong>Google Play</strong>
+                        </div>
+                    </a>
                 </div>
-                <div class="col-md-4">
-                    <input type="email" class="form-control form-control-lg" placeholder="Email Address">
-                </div>
-                <div class="col-md-3">
-                    <button type="submit" class="btn btn-lg w-100 cta-btn">Get Started Free</button>
-                </div>
-            </form>
-            <p class="mt-3 mb-0"><small>By signing up, you agree to our Terms of Service and Privacy Policy</small></p>
+            </div>
+
+            <!-- Signup Form -->
+            <div class="mt-5">
+                <h4 class="mb-4">Or Sign Up for Web Access</h4>
+                <form class="row g-3 justify-content-center">
+                    <div class="col-md-4">
+                        <input type="text" class="form-control form-control-lg" placeholder="Full Name">
+                    </div>
+                    <div class="col-md-4">
+                        <input type="email" class="form-control form-control-lg" placeholder="Email Address">
+                    </div>
+                    <div class="col-md-3">
+                        <button type="submit" class="btn btn-lg w-100 cta-btn">Get Started Free</button>
+                    </div>
+                </form>
+                <p class="mt-3 mb-0"><small>By signing up, you agree to our Terms of Service and Privacy Policy</small></p>
+            </div>
         </div>
     </section>
 
@@ -408,7 +647,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mb-4">
-                    <h5 class="mb-3"><i class="bi bi-water me-2"></i>Scuti</h5>
+                    <img src="assets/scuti/Scuti Logo Light Navy Blue.jpeg" alt="Scuti Logo" class="footer-logo">
+                    <h5 class="mb-3">Scuti</h5>
                     <p>Empowering global knowledge exchange and community-driven commerce.</p>
                     <div class="mt-3">
                         <a href="#" class="text-white me-3"><i class="bi bi-linkedin fs-5"></i></a>
@@ -418,49 +658,4 @@
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 mb-4">
-                    <h6 class="mb-3">Product</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="how-it-works.html" class="text-white-50">How It Works</a></li>
-                        <li><a href="pricing.html" class="text-white-50">Pricing</a></li>
-                        <li><a href="#" class="text-white-50">Features</a></li>
-                        <li><a href="#" class="text-white-50">Cloud Marketplace</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-md-4 mb-4">
-                    <h6 class="mb-3">Company</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-white-50">About Us</a></li>
-                        <li><a href="#" class="text-white-50">Careers</a></li>
-                        <li><a href="#" class="text-white-50">Blog</a></li>
-                        <li><a href="#" class="text-white-50">Press</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-md-4 mb-4">
-                    <h6 class="mb-3">Resources</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-white-50">Help Center</a></li>
-                        <li><a href="#" class="text-white-50">API Docs</a></li>
-                        <li><a href="#" class="text-white-50">Community</a></li>
-                        <li><a href="#" class="text-white-50">Partners</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-md-4 mb-4">
-                    <h6 class="mb-3">Legal</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-white-50">Privacy Policy</a></li>
-                        <li><a href="#" class="text-white-50">Terms of Service</a></li>
-                        <li><a href="#" class="text-white-50">Cookie Policy</a></li>
-                        <li><a href="#" class="text-white-50">GDPR</a></li>
-                    </ul>
-                </div>
-            </div>
-            <hr class="my-4 bg-white">
-            <div class="text-center text-white-50">
-                <p>&copy; 2025 Scuti. All rights reserved. Powered by CloudBots.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+                    <h6 
