@@ -1099,3 +1099,584 @@ Would you like me to create a fresh artifact with all the code so you can downlo
             </div>
         </div>
     </div>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - Scuti</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary: #0B2540;
+            --secondary: #2D9B9B;
+            --accent: #1B7A7A;
+            --cream: #F5F1E3;
+            --dark: #0B2540;
+            --light-teal: #4DBCBC;
+        }
+        
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            color: var(--dark);
+        }
+        
+        .navbar-brand {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary) !important;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .navbar {
+            background: white;
+            border-bottom: 2px solid var(--cream);
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            font-size: 24px;
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, var(--primary) 0%, #164563 100%);
+            color: white;
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+        
+        .pricing-card {
+            border-radius: 20px;
+            padding: 40px;
+            height: 100%;
+            transition: all 0.3s;
+            border: 2px solid var(--cream);
+            background: white;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(45, 155, 155, 0.2);
+        }
+        
+        .pricing-card.featured {
+            border-color: var(--secondary);
+            box-shadow: 0 10px 40px rgba(45, 155, 155, 0.25);
+            position: relative;
+        }
+        
+        .featured-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--secondary), var(--light-teal));
+            color: white;
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .price {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .price-period {
+            font-size: 16px;
+            color: #64748b;
+            font-weight: 400;
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 30px 0;
+        }
+        
+        .feature-list li {
+            padding: 12px 0;
+            display: flex;
+            align-items: start;
+        }
+        
+        .feature-list i {
+            color: var(--secondary);
+            font-size: 20px;
+            margin-right: 12px;
+            margin-top: 2px;
+        }
+        
+        .cta-btn {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary-custom {
+            background: linear-gradient(135deg, var(--secondary), var(--light-teal));
+            border: none;
+            color: white;
+        }
+        
+        .btn-primary-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(45, 155, 155, 0.3);
+        }
+        
+        .btn-outline-custom {
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+            background: white;
+        }
+        
+        .btn-outline-custom:hover {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid var(--cream);
+            padding: 20px 0;
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        
+        .enterprise-section {
+            background: linear-gradient(135deg, var(--cream) 0%, #E8E4D6 100%);
+            border-radius: 20px;
+            padding: 60px;
+            margin: 60px 0;
+            border: 2px solid var(--secondary);
+        }
+        
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 40px 0 20px;
+        }
+        
+        .comparison-table {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid var(--cream);
+        }
+        
+        .comparison-table th {
+            background: var(--secondary);
+            color: white;
+            padding: 20px;
+            border: none;
+        }
+        
+        .comparison-table td {
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--cream);
+        }
+        
+        .text-primary {
+            color: var(--secondary) !important;
+        }
+        
+        .bg-primary {
+            background: var(--secondary) !important;
+        }
+        
+        .btn-primary {
+            background: var(--secondary);
+            border-color: var(--secondary);
+        }
+        
+        .btn-primary:hover {
+            background: var(--light-teal);
+            border-color: var(--light-teal);
+        }
+        
+        .badge {
+            background: var(--secondary) !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <div class="logo-icon"><i class="bi bi-water"></i></div>
+                Scuti
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="how-it-works.html">How It Works</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="pricing.html">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-primary text-white px-4 ms-2" href="index.html#signup">Get Started</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="display-3 fw-bold mb-3">Simple, Transparent Pricing</h1>
+            <p class="lead">Choose the plan that works for you. No hidden fees.</p>
+            <div class="mt-4">
+                <span class="badge bg-light text-primary p-3 fs-6">🎉 Launch Special: First 1,000 users get 50% off for 6 months!</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Cards -->
+    <section class="py-5">
+        <div class="container my-5">
+            <div class="row g-4">
+                <!-- Free Plan -->
+                <div class="col-lg-4">
+                    <div class="pricing-card">
+                        <h3 class="mb-3">Starter</h3>
+                        <p class="text-muted">Perfect for getting started</p>
+                        <div class="mb-4">
+                            <span class="price">$0</span>
+                            <span class="price-period">/month</span>
+                        </div>
+                        <button class="btn btn-outline-custom cta-btn">Start Free Trial</button>
+                        <ul class="feature-list">
+                            <li><i class="bi bi-check-circle-fill"></i> <span>Create your profile</span></li>
+                            <li><i class="bi bi-check-circle-fill"></i> <span>5 sessions per month</span></li>
+                            <li><i class="bi bi-check-circle-fill"></i> <span>Basic analytics</span></li>
+                            <li><i class="bi bi-check-circle-fill"></i> <span>Community access</span></li>
+                            <li><i class="bi bi-check-circle-fill"></i> <span>Token payments only</span></li>
+                            <li><i class="bi bi-check-circle-fill"></i> <span>5% platform fee</span></li>
+                            <li><i class="bi bi-x-circle text-muted"></i> <span class="text-muted">No cash payments</span></li>
+                            <li><i class="bi bi-x-circle text-muted"></i> <span class="text-muted">No venue partnerships</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Pro Plan -->
+                <div class="col-lg-4">
+                    <div class="pricing-card featured">
+                        <div class="featured-badge">MOST POPULAR</div>
+                        <h3 class="mb-3">Professional</h3>
+                        <p class="text-muted">For serious educators</p>
+                        <div class="mb-4">
+                            <span class="price">$29</span>
+                            <span class="price-period">/month</span>
+                        </div>
+                        <button class="btn btn-primary-custom cta-btn">Start 30-Day Trial</button>
+                        <ul class="feature-list">
+                            <li><i class="bi bi-check-circle-fill"></i> <span>Everything in Starter</span></li>
+                            <li><i class="bi bi-check-circle-fill"></i> <span>Unlimited sessions</span></li>
+                            <li><i class="bi bi-check-circle-fill"></i> <span>Cash & token payments</span></li>
+                            <li><i class="bi bi-check-circle-fill"></i> <span>Advanced analytics</span></li>
+                            <li><i class="bi bi-check-circle-fill"></i> <span>Priority matching</span></li>
+                            <li><i class="bi bi-check-circle-fill"></i> <span>Venue partnerships</span></li>
+                            <li><i class="bi bi-check-circle-fill"></i> <span>2.9% platform fee</span></li>
+                            <li><i class="bi bi-check-circle-fill"></i> <span>Custom branding</span></li>
+                            <li><i class="bi bi-check-circle-fill"></i> <span>Email support</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Business Plan -->
+                <div class="col-lg-4">
+                    <div class="pricing-card">
+                        <h3 class="mb-3">Business</h3>
+                        <p class="text-muted">For agencies & teams</p>
+                        <div class="mb-4">
+                            <span class="price">$99</span>
+                            <span class="price-period">/month</span>
+                        </div>
+                        <button class="btn btn-outline-custom cta-btn">Start 30-Day Trial</button>
+                        <ul class="feature-list">
+                            <li><i class="bi bi-check-circle-fill"></i> <span>Everything in Professional</span></li>
+                            <li><i class="bi bi-check-circle-fill"></i> <span>Up to 10 team members</span></li>
+                            <li><i class="bi bi-check-circle-fill"></i> <span>White-label options</span></li>
+                            <li><i class="bi bi-check-circle-fill"></i> <span>API access</span></li>
+                            <li><i class="bi bi-check-circle-fill"></i> <span>Custom integrations</span></li>
+                            <li><i class="bi bi-check-circle-fill"></i> <span>Dedicated account manager</span></li>
+                            <li><i class="bi bi-check-circle-fill"></i> <span>1.9% platform fee</span></li>
+                            <li><i class="bi bi-check-circle-fill"></i> <span>Priority support (24/7)</span></li>
+                            <li><i class="bi bi-check-circle-fill"></i> <span>Custom contracts</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Venue Pricing -->
+    <section class="py-5" style="background: linear-gradient(135deg, var(--cream) 0%, #E8E4D6 100%);">
+        <div class="container my-5">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold mb-3">For Local Businesses & Venues</h2>
+                <p class="lead text-muted">Drive foot traffic to your location</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="pricing-card">
+                        <h4 class="mb-3">Basic Listing</h4>
+                        <div class="mb-4">
+                            <span class="price">$49</span>
+                            <span class="price-period">/month</span>
+                        </div>
+                        <button class="btn btn-outline-custom cta-btn">Get Listed</button>
+                        <ul class="feature-list">
+                            <li><i class="bi bi-check-circle-fill"></i> <span>Profile on marketplace</span></li>
+                            <li><i class="bi bi-check-circle-fill"></i> <span>Up to 50 customer visits/mo</span></li>
+                            <li><i class="bi bi-check-circle-fill"></i> <span>Basic analytics</span></li>
+                            <li><i class="bi bi-check-circle-fill"></i> <span>Review system</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="pricing-card featured">
+                        <div class="featured-badge">RECOMMENDED</div>
+                        <h4 class="mb-3">Growth</h4>
+                        <div class="mb-4">
+                            <span class="price">$149</span>
+                            <span class="price-period">/month</span>
+                        </div>
+                        <button class="btn btn-primary-custom cta-btn">Grow Traffic</button>
+                        <ul class="feature-list">
+                            <li><i class="bi bi-check-circle-fill"></i> <span>Everything in Basic</span></li>
+                            <li><i class="bi bi-check-circle-fill"></i> <span>Up to 200 customer visits/mo</span></li>
+                            <li><i class="bi bi-check-circle-fill"></i> <span>Featured placement</span></li>
+                            <li><i class="bi bi-check-circle-fill"></i> <span>Advanced analytics</span></li>
+                            <li><i class="bi bi-check-circle-fill"></i> <span>Promotional campaigns</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="pricing-card">
+                        <h4 class="mb-3">Performance</h4>
+                        <div class="mb-4">
+                            <span class="price">$2.50</span>
+                            <span class="price-period">/visit</span>
+                        </div>
+                        <button class="btn btn-outline-custom cta-btn">Pay Per Visit</button>
+                        <ul class="feature-list">
+                            <li><i class="bi bi-check-circle-fill"></i> <span>Pay only for results</span></li>
+                            <li><i class="bi bi-check-circle-fill"></i> <span>Unlimited visits</span></li>
+                            <li><i class="bi bi-check-circle-fill"></i> <span>No monthly commitment</span></li>
+                            <li><i class="bi bi-check-circle-fill"></i> <span>Real-time tracking</span></li>
+                            <li><i class="bi bi-check-circle-fill"></i> <span>Verified check-ins only</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enterprise Section -->
+    <section class="container">
+        <div class="enterprise-section text-center">
+            <i class="bi bi-building text-primary" style="font-size: 64px;"></i>
+            <h2 class="display-5 fw-bold mt-4 mb-3">Enterprise & AWS Marketplace</h2>
+            <p class="lead text-muted mb-4">License Scuti for your organization or white-label our platform</p>
+            <div class="row mt-5">
+                <div class="col-md-3 mb-4">
+                    <div class="h2 text-primary">♾️</div>
+                    <h5>Unlimited Users</h5>
+                    <p class="text-muted small">Scale without limits</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="h2 text-primary">🔒</div>
+                    <h5>SSO & SAML</h5>
+                    <p class="text-muted small">Enterprise security</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="h2 text-primary">🛠️</div>
+                    <h5>Custom Dev</h5>
+                    <p class="text-muted small">Tailored features</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="h2 text-primary">☁️</div>
+                    <h5>AWS Deploy</h5>
+                    <p class="text-muted small">Your infrastructure</p>
+                </div>
+            </div>
+            <div class="mt-4">
+                <a href="#" class="btn btn-primary btn-lg me-3">Request Demo</a>
+                <a href="#" class="btn btn-outline-primary btn-lg">View on AWS Marketplace</a>
+            </div>
+            <p class="mt-4 mb-0 text-muted"><small>Custom pricing based on deployment size • Annual contracts available</small></p>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="py-5">
+        <div class="container my-5">
+            <h2 class="display-5 fw-bold text-center mb-5">Feature Comparison</h2>
+            <div class="table-responsive">
+                <table class="table comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th class="text-center">Starter</th>
+                            <th class="text-center">Professional</th>
+                            <th class="text-center">Business</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Sessions per month</strong></td>
+                            <td class="text-center">5</td>
+                            <td class="text-center">Unlimited</td>
+                            <td class="text-center">Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Platform fee</strong></td>
+                            <td class="text-center">5%</td>
+                            <td class="text-center">2.9%</td>
+                            <td class="text-center">1.9%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Payment methods</strong></td>
+                            <td class="text-center">Tokens</td>
+                            <td class="text-center">Tokens & Cash</td>
+                            <td class="text-center">Tokens & Cash</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Venue partnerships</strong></td>
+                            <td class="text-center">-</td>
+                            <td class="text-center"><i class="bi bi-check-circle-fill text-primary"></i></td>
+                            <td class="text-center"><i class="bi bi-check-circle-fill text-primary"></i></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Team members</strong></td>
+                            <td class="text-center">1</td>
+                            <td class="text-center">1</td>
+                            <td class="text-center">10</td>
+                        </tr>
+                        <tr>
+                            <td><strong>API access</strong></td>
+                            <td class="text-center">-</td>
+                            <td class="text-center">-</td>
+                            <td class="text-center"><i class="bi bi-check-circle-fill text-primary"></i></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Support</strong></td>
+                            <td class="text-center">Community</td>
+                            <td class="text-center">Email</td>
+                            <td class="text-center">24/7 Priority</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-5" style="background: linear-gradient(135deg, var(--cream) 0%, #E8E4D6 100%);">
+        <div class="container my-5">
+            <h2 class="display-5 fw-bold text-center mb-5">Frequently Asked Questions</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="faq-item">
+                        <h5>Can I change plans at any time?</h5>
+                        <p class="text-muted">Yes! You can upgrade or downgrade your plan at any time. Changes take effect immediately, and we'll prorate any charges.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h5>What payment methods do you accept?</h5>
+                        <p class="text-muted">We accept all major credit cards, PayPal, and bank transfers for enterprise accounts. Your customers can pay you via tokens or cash through the app.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h5>Is there a contract or commitment?</h5>
+                        <p class="text-muted">No! All plans are month-to-month. Cancel anytime with no penalties. Enterprise plans may have custom terms.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h5>How do venue partnerships work?</h5>
+                        <p class="text-muted">You can partner with local businesses (cafes, gyms, etc.) to host sessions or send customers. You earn commissions based on traffic generated.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h5>What's included in the AWS Marketplace listing?</h5>
+                        <p class="text-muted">Full SaaS platform license, white-label options, deployment on your AWS infrastructure, and dedicated support. Perfect for corporations wanting their own branded platform.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h5>Do you offer discounts for annual payments?</h5>
+                        <p class="text-muted">Yes! Pay annually and get 2 months free on Professional and Business plans. Contact sales for enterprise annual contracts.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-5">
+        <div class="container text-center my-5">
+            <h2 class="display-5 fw-bold mb-4">Start Your 30-Day Free Trial</h2>
+            <p class="lead text-muted mb-4">No credit card required • Full access to all features</p>
+            <a href="index.html#signup" class="btn btn-primary btn-lg px-5">Get Started Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5 class="mb-3"><i class="bi bi-water me-2"></i>Scuti</h5>
+                    <p>Empowering global knowledge exchange and community-driven commerce.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h6 class="mb-3">Product</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="how-it-works.html" class="text-white-50">How It Works</a></li>
+                        <li><a href="pricing.html" class="text-white-50">Pricing</a></li>
+                        <li><a href="#" class="text-white-50">Features</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h6 class="mb-3">Company</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white-50">About Us</a></li>
+                        <li><a href="#" class="text-white-50">Careers</a></li>
+                        <li><a href="#" class="text-white-50">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h6 class="mb-3">Legal</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white-50">Privacy Policy</a></li>
+                        <li><a href="#" class="text-white-50">Terms of Service</a></li>
+                        <li><a href="#" class="text-white-50">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 bg-white">
+            <div class="text-center text-white-50">
+                <p>&copy; 2024 Scuti. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
