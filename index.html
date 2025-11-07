@@ -489,24 +489,24 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                    <li class="nav-item"><a class="nav-link translatable" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link translatable" href="#about">About Us</a></li>
+                    <li class="nav-item dropdown translatable">
+                        <a class="nav-link dropdown-toggle translatable" href="#" role="button" data-bs-toggle="dropdown">
                             Products & Services
                         </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#services">All Services</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#services">For Learners</a></li>
-                            <li><a class="dropdown-item" href="#services">For Mentors</a></li>
-                            <li><a class="dropdown-item" href="#services">For Businesses</a></li>
-                            <li><a class="dropdown-item" href="#services">Enterprise Solutions</a></li>
+                        <ul class="dropdown-menu translatable">
+                            <li><a class="dropdown-item translatable" href="#services">All Services</a></li>
+                            <li><hr class="dropdown-divider translatable"></li>
+                            <li><a class="dropdown-item translatable" href="#services">For Learners</a></li>
+                            <li><a class="dropdown-item translatable" href="#services">For Mentors</a></li>
+                            <li><a class="dropdown-item translatable" href="#services">For Businesses</a></li>
+                            <li><a class="dropdown-item translatable" href="#services">Enterprise Solutions</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="how-it-works.html">How It Works</a></li>
-                    <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
-                    <li class="nav-item"><a class="nav-link" href="store.html">Store</a></li>
+                    <li class="nav-item"><a class="nav-link translatable" href="how-it-works.html">How It Works</a></li>
+                    <li class="nav-item"><a class="nav-link translatable" href="pricing.html">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link translatable" href="store.html">Store</a></li>
                     
                     <!-- TRANSLATION LANGUAGE SWITCHER - START -->
                     <li class="nav-item">
@@ -978,11 +978,11 @@
             } else if (message.includes('how') && message.includes('work')) {
                 return "Scuti connects learners, mentors, and local businesses. You can earn by teaching, learning new skills, or partnering with venues. Visit our How It Works page!";
             } else if (message.includes('download') || message.includes('app')) {
-                return "You can download our app by clicking the 'Download App' button at the top of the page. Available for Android devices!";
+                return "You can download our app by clicking the 'Download App' button at the top of the page. Available for Android and Apple devices!";
             } else if (message.includes('contact') || message.includes('support')) {
                 return "You can reach our support team at support@scuti.com or visit our Help Center.";
             } else if (message.includes('hello') || message.includes('hi')) {
-                return "Hello! I'm Andro, your Scuti assistant. How can I help you today?";
+                return "Hello! I'm Scuti, your AI assistant. How can I help you today?";
             } else {
                 return "Thanks for your message! For detailed information, please check our website or contact support@scuti.com.";
             }
