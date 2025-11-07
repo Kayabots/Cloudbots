@@ -1051,29 +1051,6 @@
                 hideLoading();
             }
         }
-        
-// Handle placeholders translations
-        async function translatePageToSpanish() {
-            const elements = document.querySelectorAll('.translatable');
-
-            for (const el of elements) {
-     // Handle placeholders in <input> or <textarea>
-            if (el.placeholder) {
-            const translatedPlaceholder = await translateTextWithAWS(el.placeholder, 'es');
-            el.placeholder = translatedPlaceholder;
-        }
-
-    // Handle visible text (like <h4>, <button>, etc.)
-            if (el.textContent.trim()) {
-            const translatedText = await translateTextWithAWS(el.textContent.trim(), 'es');
-            el.textContent = translatedText;
-    }
-  }
-}
-
-             
-
-
 
         /**
          * Translate multiple texts by calling API for each one
