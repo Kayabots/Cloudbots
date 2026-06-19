@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaya Kaya Tuk Tuks | Luxury Beach Transportation in Puerto Viejo</title>
+    <meta name="description" content="Premium black Tuk Tuk service in Puerto Viejo, Talamanca. Luxury beach transportation with style. Book your ride with Kaya Kaya.">
+    <meta name="keywords" content="Kaya Kaya, Tuk Tuk Puerto Viejo, luxury transportation, Talamanca, beach taxi, Costa Rica">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Luxury gradient background */
+        .luxury-bg {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+        }
+
+        .glass {
+            background: rgba(255, 215, 0, 0.05);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .glass:hover {
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.3);
+        }
+
+        .gold-gradient {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cta-luxury {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            color: #0a0a0a;
+            padding: 1.25rem 3rem;
+            border-radius: 50px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.4);
+            border: 2px solid transparent;
+        }
+
+        .cta-luxury:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(255, 215, 0, 0.6);
+            border-color: white;
+        }
+
+        .service-card {
+            background: rgba(255, 215, 0, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+            transition: 0.5s;
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: #ffd700;
+            box-shadow: 0 20px 50px rgba(255, 215, 0, 0.3);
+        }
+
+        .promo-banner {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            color: #0a0a0a;
+            padding: 1rem;
+            text-align: center;
+            font-weight: 700;
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .luxury-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+        }
+
+        .route-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .route-card:hover {
+            background: rgba(255, 215, 0, 0.05);
+            border-color: #ffd700;
+            transform: translateX(10px);
+        }
+
+        .price-tag {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            color: #0a0a0a;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.5rem;
+        }
+
+        .chatbot-widget {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.6);
+            animation: pulse 2s infinite;
+            z-index: 1000;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .testimonial-card {
+            background: rgba(255, 215, 0, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 1.5rem;
+            padding: 2rem;
+        }
+
+        .hero-img {
+            border-radius: 2rem;
+            border: 3px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 0 20px 60px rgba(255, 215, 0, 0.2);
+        }
+
+        /* Gold accent lines */
+        .gold-line {
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ffd700, transparent);
+            margin: 0 auto;
+        }
+
+        .badge-luxury {
+            background: rgba(255, 215, 0, 0.2);
+            border: 2px solid #ffd700;
+            color: #ffd700;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.75rem;
+        }
+    </style>
+</head>
+<body class="luxury-bg min-h-screen">
+
+    <!-- Promo Banner -->
+    <div class="promo-banner">
+        ⭐ LUXURY RIDES • PREMIUM SERVICE • BOOK NOW & SAVE 10% ⭐
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50" style="background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(10px); border-bottom: 2px solid rgba(255, 215, 0, 0.3);">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="flex justify-between items-center py-5">
+                <div class="flex items-center gap-3">
+                    <div class="text-5xl">🛺</div>
+                    <div>
+                        <h1 class="text-3xl font-display font-black tracking-tight gold-gradient">KAYA KAYA</h1>
+                        <p class="text-xs text-gray-400 tracking-widest">LUXURY TUK TUK SERVICE</p>
+                    </div>
+                </div>
+
+                <div class="hidden md:flex gap-8 text-sm font-semibold tracking-wide">
+                    <a href="#services" class="hover:text-yellow-400 transition">Services</a>
+                    <a href="#routes" class="hover:text-yellow-400 transition">Routes</a>
+                    <a href="#pricing" class="hover:text-yellow-400 transition">Pricing</a>
+                    <a href="#fleet" class="hover:text-yellow-400 transition">Our Fleet</a>
+                    <a href="#contact" class="hover:text-yellow-400 transition">Contact</a>
+                </div>
+                
+                <button onclick="openBooking()" class="bg-gradient-to-r from-yellow-400 to-yellow-500 text-black px-6 py-2.5 rounded-full font-bold text-sm transition shadow-lg hover:shadow-yellow-400/50">
+                    Book Now
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="max-w-7xl mx-auto px-6 py-24 text-center">
+        <div class="mb-6">
+            <span class="badge-luxury inline-block">PUERTO VIEJO • TALAMANCA</span>
+        </div>
+        
+        <h1 class="text-7xl md:text-9xl font-display font-black mb-8 leading-tight">
+            Ride in <br>
+            <span class="gold-gradient">Luxury</span>
+        </h1>
+        
+        <div class="gold-line mb-8"></div>
+        
+        <p class="max-w-3xl mx-auto text-2xl mb-6 leading-relaxed text-gray-300">
+            Experience Puerto Viejo's finest Tuk Tuk service
+        </p>
+        <p class="max-w-2xl mx-auto text-lg mb-12 text-gray-400">
+            Black fleet • Premium comfort • Professional drivers • 24/7 service
+        </p>
+        
+        <div class="flex flex-wrap justify-center gap-6 mb-16">
+            <button onclick="openBooking()" class="cta-luxury">
+                Reserve Your Ride
+            </button>
+            <button onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'})" class="px-8 py-4 rounded-full font-bold border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black transition">
+                View Pricing
+            </button>
+        </div>
+
+        <!-- Hero Images -->
+        <div class="grid md:grid-cols-2 gap-8 mt-16">
+            <img src="https://images.unsplash.com/photo-1583221773355-5418462c5a19?w=800&q=80" alt="Luxury Tuk Tuk" class="hero-img w-full h-80 object-cover">
+            <img src="https://images.unsplash.com/photo-1557223562-6c2d5dfb1d15?w=800&q=80" alt="Puerto Viejo Beach" class="hero-img w-full h-80 object-cover">
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="max-w-7xl mx-auto px-6 py-20">
+        <div class="text-center mb-16">
+            <h2 class="text-6xl font-display font-black mb-4">Premium <span class="gold-gradient">Services</span></h2>
+            <div class="gold-line mb-6"></div>
+            <p class="text-xl text-gray-300">Luxury transportation tailored to your needs</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="service-card text-center">
+                <div class="luxury-icon mx-auto mb-6">🏖️</div>
+                <h3 class="text-2xl font-bold mb-4 gold-gradient">Beach Transfers</h3>
+                <p class="text-gray-300 mb-6">Comfortable rides to all Puerto Viejo beaches. Playa Cocles, Chiquita, Punta Uva & more.</p>
+                <ul class="text-sm text-gray-400 space-y-2">
+                    <li>✓ Door-to-door service</li>
+                    <li>✓ Luggage assistance</li>
+                    <li>✓ Beach equipment transport</li>
+                </ul>
+            </div>
+
+            <div class="service-card text-center">
+                <div class="luxury-icon mx-auto mb-6">🌙</div>
+                <h3 class="text-2xl font-bold mb-4 gold-gradient">Night Service</h3>
+                <p class="text-gray-300 mb-6">Safe late-night transportation from restaurants, bars, and events. Available 24/7.</p>
+                <ul class="text-sm text-gray-400 space-y-2">
+                    <li>✓ Safe night rides</li>
+                    <li>✓ Restaurant pickups</li>
+                    <li>✓ Event transportation</li>
+                </ul>
+            </div>
+
+            <div class="service-card text-center">
+                <div class="luxury-icon mx-auto mb-6">🗺️</div>
+                <h3 class="text-2xl font-bold mb-4 gold-gradient">Tours & Excursions</h3>
+                <p class="text-gray-300 mb-6">Private tours around Puerto Viejo and Talamanca. Explore at your own pace.</p>
+                <ul class="text-sm text-gray-400 space-y-2">
+                    <li>✓ 2-4 hour tours</li>
+                    <li>✓ Custom itineraries</li>
+                    <li>✓ Photo stops included</li>
+                </ul>
+            </div>
+
+            <div class="service-card text-center">
+                <div class="luxury-icon mx-auto mb-6">🏨</div>
+                <h3 class="text-2xl font-bold mb-4 gold-gradient">Hotel Shuttle</h3>
+                <p class="text-gray-300 mb-6">Premium shuttle service between hotels, hostels, and rental properties.</p>
+                <ul class="text-sm text-gray-400 space-y-2">
+                    <li>✓ Airport transfers</li>
+                    <li>✓ Check-in/out service</li>
+                    <li>✓ Multiple stops</li>
+                </ul>
+            </div>
+
+            <div class="service-card text-center">
+                <div class="luxury-icon mx-auto mb-6">🛍️</div>
+                <h3 class="text-2xl font-bold mb-4 gold-gradient">Shopping Trips</h3>
+                <p class="text-gray-300 mb-6">Convenient rides to supermarkets, shops, and local markets with wait service.</p>
+                <ul class="text-sm text-gray-400 space-y-2">
+                    <li>✓ Grocery runs</li>
+                    <li>✓ Market visits</li>
+                    <li>✓ Shopping assistance</li>
+                </ul>
+            </div>
+
+            <div class="service-card text-center">
+                <div class="luxury-icon mx-auto mb-6">💼</div>
+                <h3 class="text-2xl font-bold mb-4 gold-gradient">Corporate Service</h3>
+                <p class="text-gray-300 mb-6">Professional transportation for business travelers and remote workers.</p>
+                <ul class="text-sm text-gray-400 space-y-2">
+                    <li>✓ Meeting transfers</li>
+                    <li>✓ Priority booking</li>
+                    <li>✓ Invoice service</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Routes -->
+    <section id="routes" class="max-w-7xl mx-auto px-6 py-20">
+        <div class="text-center mb-16">
+            <h2 class="text-6xl font-display font-black mb-4">Popular <span class="gold-gradient">Routes</span></h2>
+            <div class="gold-line mb-6"></div>
+            <p class="text-xl text-gray-300">Fixed-price routes around Puerto Viejo</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="route-card">
+                <div class="flex justify-between items-center mb-4">
+                    <div>
+                        <h3 class="text-xl font-bold mb-1">🏘️ Town Center → Playa Cocles</h3>
+                        <p class="text-sm text-gray-400">4.5 km • ~10 min ride</p>
+                    </div>
+                    <div class="price-tag">$8</div>
+                </div>
+                <p class="text-sm text-gray-300">From downtown Puerto Viejo to beautiful Cocles Beach</p>
+            </div>
+
+            <div class="route-card">
+                <div class="flex justify-between items-center mb-4">
+                    <div>
+                        <h3 class="text-xl font-bold mb-1">🏖️ Town Center → Punta Uva</h3>
+                        <p class="text-sm text-gray-400">8 km • ~15 min ride</p>
+                    </div>
+                    <div class="price-tag">$12</div>
+                </div>
+                <p class="text-sm text-gray-300">To the pristine beaches of Punta Uva</p>
+            </div>
+
+            <div class="route-card">
+                <div class="flex justify-between items-center mb-4">
+                    <div>
+                        <h3 class="text-xl font-bold mb-1">🌴 Town Center → Manzanillo</h3>
+                        <p class="text-sm text-gray-400">13 km • ~20 min ride</p>
+                    </div>
+                    <div class="price-tag">$18</div>
+                </div>
+                <p class="text-sm text-gray-300">Journey to the secluded village of Manzanillo</p>
+            </div>
+
+            <div class="route-card">
+                <div class="flex justify-between items-center mb-4">
+                    <div>
+                        <h3 class="text-xl font-bold mb-1">🦥 Jaguar Rescue Center</h3>
+                        <p class="text-sm text-gray-400">7 km • ~12 min ride</p>
+                    </div>
+                    <div class="price-tag">$10</div>
+                </div>
+                <p class="text-sm text-gray-300">Visit the famous wildlife rescue center</p>
+            </div>
+
+            <div class="route-card">
+                <div class="flex justify-between items-center mb-4">
+                    <div>
+                        <h3 class="text-xl font-bold mb-1">🍃 Cahuita National Park</h3>
+                        <p class="text-sm text-gray-400">15 km • ~25 min ride</p>
+                    </div>
+                    <div class="price-tag">$20</div>
+                </div>
+                <p class="text-sm text-gray-300">Explore the stunning national park</p>
+            </div>
+
+            <div class="route-card">
+                <div class="flex justify-between items-center mb-4">
+                    <div>
+                        <h3 class="text-xl font-bold mb-1">✈️ Limón Airport</h3>
+                        <p class="text-sm text-gray-400">55 km • ~60 min ride</p>
+                    </div>
+                    <div class="price-tag">$65</div>
+                </div>
+                <p class="text-sm text-gray-300">Airport transfer with luggage service</p>
+            </div>
+        </div>
+
+        <div class="mt-12 glass rounded-3xl p-8 text-center">
+            <h3 class="text-2xl font-bold mb-4">🎯 Custom Destination?</h3>
+            <p class="text-gray-300 mb-6">Going somewhere not listed? Contact us for a custom quote!</p>
+            <button onclick="openBooking()" class="cta-luxury">
+                Request Custom Route
+            </button>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="max-w-7xl mx-auto px-6 py-20">
+        <div class="text-center mb-16">
+            <h2 class="text-6xl font-display font-black mb-4">Transparent <span class="gold-gradient">Pricing</span></h2>
+            <div class="gold-line mb-6"></div>
+            <p class="text-xl text-gray-300">No hidden fees • No surprises</p>
+        </div>
+
+        <div class="glass rounded-3xl p-12 max-w-4xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 gold-gradient">💰 Base Rates</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center pb-3 border-b border-yellow-400/20">
+                            <span>First kilometer</span>
+                            <span class="font-bold text-yellow-400">$3.00</span>
+                        </div>
+                        <div class="flex justify-between items-center pb-3 border-b border-yellow-400/20">
+                            <span>Additional km</span>
+                            <span class="font-bold text-yellow-400">$1.50/km</span>
+                        </div>
+                        <div class="flex justify-between items-center pb-3 border-b border-yellow-400/20">
+                            <span>Night rate (10PM-6AM)</span>
+                            <span class="font-bold text-yellow-400">+25%</span>
+                        </div>
+                        <div class="flex justify-between items-center pb-3">
+                            <span>Waiting time</span>
+                            <span class="font-bold text-yellow-400">$5/15min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 gold-gradient">🎁 Special Offers</h3>
+                    <div class="space-y-4">
+                        <div class="bg-yellow-400/10 rounded-xl p-4 border border-yellow-400/30">
+                            <p class="font-bold text-yellow-400 mb-2">Round Trip Discount</p>
+                            <p class="text-sm text-gray-300">Book return journey - Save 10%</p>
+                        </div>
+                        <div class="bg-yellow-400/10 rounded-xl p-4 border border-yellow-400/30">
+                            <p class="font-bold text-yellow-400 mb-2">Tour Package (4 hours)</p>
+                            <p class="text-sm text-gray-300">Flat rate: $80</p>
+                        </div>
+                        <div class="bg-yellow-400/10 rounded-xl p-4 border border-yellow-400/30">
+                            <p class="font-bold text-yellow-400 mb-2">Weekly Pass</p>
+                            <p class="text-sm text-gray-300">Unlimited rides: $150/week</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-yellow-400/5 rounded-2xl p-6 border-2 border-yellow-400">
+                <h4 class="font-bold text-xl mb-3 text-center gold-gradient">💎 Why Choose Kaya Kaya?</h4>
+                <div class="grid md:grid-cols-3 gap-4 text-center text-sm">
+                    <div>
+                        <p class="font-bold text-yellow-400">✓ Luxury Fleet</p>
+                        <p class="text-gray-400">Premium black Tuk Tuks</p>
+                    </div>
+                    <div>
+                        <p class="font-bold text-yellow-400">✓ Professional Drivers</p>
+                        <p class="text-gray-400">Licensed & experienced</p>
+                    </div>
+                    <div>
+                        <p class="font-bold text-yellow-400">✓ 24/7 Service</p>
+                        <p class="text-gray-400">Always available</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fleet Section -->
+    <section id="fleet" class="max-w-7xl mx-auto px-6 py-20">
+        <div class="text-center mb-16">
+            <h2 class="text-6xl font-display font-black mb-4">Our <span class="gold-gradient">Fleet</span></h2>
+            <div class="gold-line mb-6"></div>
+            <p class="text-xl text-gray-300">Premium black Tuk Tuks for your comfort</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="glass rounded-2xl overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1583221773355-5418462c5a19?w=600&q=80" alt="Kaya Kaya Tuk Tuk" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold mb-3">🖤 Black Diamond</h3>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li>✓ Seats up to 3 passengers</li>
+                        <li>✓ Covered roof protection</li>
+                        <li>✓ Comfortable cushioned seats</li>
+                        <li>✓ Storage for luggage/bags</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="glass rounded-2xl overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1557223562-6c2d5dfb1d15?w=600&q=80" alt="Premium Interior" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold mb-3">✨ Premium Features</h3>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li>✓ Gold accent detailing</li>
+                        <li>✓ LED ambient lighting</li>
+                        <li>✓ Bluetooth speaker</li>
+                        <li>✓ Phone charging ports</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="glass rounded-2xl overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1569525001710-99c9c6f66162?w=600&q=80" alt="Beach Views" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold mb-3">🌊 Experience</h3>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li>✓ Open-air beach breeze</li>
+                        <li>✓ Panoramic views</li>
+                        <li>✓ Photo-friendly design</li>
+                        <li>✓ Smooth Caribbean ride</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="max-w-7xl mx-auto px-6 py-20">
+        <div class="text-center mb-16">
+            <h2 class="text-6xl font-display font-black mb-4">Guest <span class="gold-gradient">Reviews</span></h2>
+            <div class="gold-line mb-6"></div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="testimonial-card">
+                <div class="text-3xl mb-4">⭐⭐⭐⭐⭐</div>
+                <p class="text-gray-300 mb-6 italic">"Best Tuk Tuk service in Puerto Viejo! The black fleet is stunning and the service is impeccable. Highly recommended!"</p>
+                <p class="font-bold gold-gradient">- Sarah M.</p>
+                <p class="text-sm text-gray-400">Tourist from USA</p>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="text-3xl mb-4">⭐⭐⭐⭐⭐</div>
+                <p class="text-gray-300 mb-6 italic">"Professional, punctual, and luxurious.

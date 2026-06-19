@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudBots Rentals | Beach Villas in Santa Teresa & Puerto Viejo</title>
+    <meta name="description" content="Rent stunning beach villas, cabinas & apartments in Santa Teresa and Puerto Viejo. AI-powered instant booking, 24/7 chatbot support.">
+    <meta name="keywords" content="Santa Teresa rentals, Puerto Viejo vacation homes, Costa Rica beach houses, AI booking">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.3s ease;
+        }
+        
+        .glass:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(34, 197, 94, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(34, 197, 94, 0.3);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.2) 0%, rgba(16, 185, 129, 0.2) 100%);
+            border-radius: 2rem;
+            padding: 3rem;
+        }
+
+        .cta-primary {
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            color: white;
+            padding: 1.25rem 3rem;
+            border-radius: 50px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(34, 197, 94, 0.4);
+            border: 2px solid transparent;
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(34, 197, 94, 0.6);
+            border-color: white;
+        }
+
+        .property-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 1.5rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .property-card:hover {
+            transform: translateY(-10px);
+            border-color: #22c55e;
+            box-shadow: 0 20px 50px rgba(34, 197, 94, 0.3);
+        }
+
+        .property-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .badge {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            display: inline-block;
+        }
+
+        .timer-box {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            padding: 2rem;
+            border-radius: 1.5rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(239, 68, 68, 0.4);
+        }
+
+        .timer-number {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .chatbot-widget {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(34, 197, 94, 0.5);
+            animation: pulse 2s infinite;
+            z-index: 1000;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .location-tab {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .location-tab.active {
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            border-color: white;
+            box-shadow: 0 5px 20px rgba(34, 197, 94, 0.5);
+        }
+
+        .location-tab:hover:not(.active) {
+            background: rgba(34, 197, 94, 0.2);
+            border-color: #22c55e;
+        }
+
+        .promo-banner {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            padding: 1rem;
+            text-align: center;
+            font-weight: 700;
+            animation: slideDown 0.5s ease;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .booking-form {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- Promo Banner -->
+    <div class="promo-banner">
+        🔥 BOOK NOW & SAVE 15% • Limited Time Offer! 🔥
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50" style="background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); border-bottom: 2px solid rgba(34, 197, 94, 0.3);">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="flex justify-between items-center py-5">
+                <div class="flex items-center gap-3">
+                    <div class="text-4xl">🏖️</div>
+                    <div>
+                        <h1 class="text-2xl font-bold tracking-tight">CloudBots Rentals</h1>
+                        <p class="text-xs text-green-400">AI-Powered Booking</p>
+                    </div>
+                </div>
+
+                <div class="hidden md:flex gap-8 text-sm font-semibold tracking-wide">
+                    <a href="#properties" class="hover:text-green-400 transition">Properties</a>
+                    <a href="#locations" class="hover:text-green-400 transition">Locations</a>
+                    <a href="#amenities" class="hover:text-green-400 transition">Amenities</a>
+                    <a href="#booking" class="hover:text-green-400 transition">Book Now</a>
+                </div>
+                
+                <button onclick="openChatbot()" class="bg-green-500 hover:bg-green-600 px-6 py-2.5 rounded-full font-bold text-sm transition shadow-lg">
+                    Reserve Now
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="max-w-7xl mx-auto px-6 py-20 text-center">
+        <div class="mb-6">
+            <span class="badge">24/7 AI BOOKING ASSISTANT</span>
+        </div>
+        
+        <h1 class="text-6xl md:text-8xl font-black mb-8 leading-tight">
+            Your Beach Paradise<br>
+            <span class="bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent">Awaits</span>
+        </h1>
+        
+        <p class="max-w-3xl mx-auto text-2xl mb-6 leading-relaxed text-slate-300">
+            Stunning villas, cabinas & apartments in Costa Rica's most beautiful beach towns
+        </p>
+        <p class="max-w-2xl mx-auto text-lg mb-12 text-slate-400">
+            Santa Teresa • Puerto Viejo • Instant booking with our AI chatbot
+        </p>
+        
+        <div class="flex flex-wrap justify-center gap-6 mb-16">
+            <button onclick="document.getElementById('booking').scrollIntoView({behavior: 'smooth'})" class="cta-primary">
+                Book Your Stay - Save 15%
+            </button>
+            <button onclick="openChatbot()" class="px-8 py-4 rounded-full font-bold border-2 border-green-500 text-green-400 hover:bg-green-500 hover:text-white transition">
+                Chat with AI Assistant
+            </button>
+        </div>
+
+        <!-- Countdown Timer -->
+        <div class="timer-box max-w-2xl mx-auto">
+            <p class="text-xl font-bold mb-4">⏰ 15% DISCOUNT ENDS IN:</p>
+            <div class="flex justify-center gap-6">
+                <div>
+                    <div class="timer-number" id="hours">12</div>
+                    <div class="text-sm">HOURS</div>
+                </div>
+                <div class="timer-number">:</div>
+                <div>
+                    <div class="timer-number" id="minutes">34</div>
+                    <div class="text-sm">MINUTES</div>
+                </div>
+                <div class="timer-number">:</div>
+                <div>
+                    <div class="timer-number" id="seconds">56</div>
+                    <div class="text-sm">SECONDS</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Tabs -->
+    <section id="locations" class="max-w-7xl mx-auto px-6 py-12">
+        <div class="flex justify-center gap-6 mb-16">
+            <button class="location-tab active" onclick="filterLocation('all')">
+                All Properties
+            </button>
+            <button class="location-tab" onclick="filterLocation('santa-teresa')">
+                🌴 Santa Teresa
+            </button>
+            <button class="location-tab" onclick="filterLocation('puerto-viejo')">
+                🏝️ Puerto Viejo
+            </button>
+        </div>
+    </section>
+
+    <!-- Properties Grid -->
+    <section id="properties" class="max-w-7xl mx-auto px-6 pb-20">
+        <div class="text-center mb-16">
+            <h2 class="text-5xl font-black mb-4">Featured <span class="text-green-400">Properties</span></h2>
+            <p class="text-xl text-slate-300">Hand-picked accommodations for your perfect beach getaway</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8" id="properties-grid">
+            
+            <!-- Property 1 - Cabina Turquoise -->
+            <div class="property-card" data-location="puerto-viejo">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?w=600&q=80" alt="Turquoise Cabina" class="property-img">
+                    <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                        AVAILABLE
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-3">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-1">Turquoise Cabina</h3>
+                            <p class="text-sm text-slate-400">📍 Puerto Viejo Center</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-sm text-slate-400 line-through">$65/night</p>
+                            <p class="text-2xl font-bold text-green-400">$55/night</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-slate-300 mb-4">Cozy studio with kitchenette, workspace & AC. Perfect for digital nomads.</p>
+                    <div class="flex gap-4 text-xs text-slate-400 mb-4">
+                        <span>🛏️ 1 Bed</span>
+                        <span>🚿 1 Bath</span>
+                        <span>👥 2 Guests</span>
+                        <span>❄️ AC</span>
+                    </div>
+                    <button onclick="bookProperty('Turquoise Cabina', 55)" class="w-full bg-green-500 hover:bg-green-600 py-3 rounded-xl font-bold transition">
+                        Reserve with AI Bot
+                    </button>
+                </div>
+            </div>
+
+            <!-- Property 2 - Beach Villa -->
+            <div class="property-card" data-location="santa-teresa">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=600&q=80" alt="Beach Villa" class="property-img">
+                    <div class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold animate-pulse">
+                        HOT DEAL
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-3">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-1">Sunset Beach Villa</h3>
+                            <p class="text-sm text-slate-400">📍 Santa Teresa Beachfront</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-sm text-slate-400 line-through">$180/night</p>
+                            <p class="text-2xl font-bold text-green-400">$153/night</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-slate-300 mb-4">Luxury 3BR villa with ocean views, private pool & direct beach access.</p>
+                    <div class="flex gap-4 text-xs text-slate-400 mb-4">
+                        <span>🛏️ 3 Beds</span>
+                        <span>🚿 2 Baths</span>
+                        <span>👥 6 Guests</span>
+                        <span>🏊 Pool</span>
+                    </div>
+                    <button onclick="bookProperty('Sunset Beach Villa', 153)" class="w-full bg-green-500 hover:bg-green-600 py-3 rounded-xl font-bold transition">
+                        Reserve with AI Bot
+                    </button>
+                </div>
+            </div>
+
+            <!-- Property 3 - Jungle Cabina -->
+            <div class="property-card" data-location="puerto-viejo">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&q=80" alt="Jungle Cabina" class="property-img">
+                    <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                        AVAILABLE
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-3">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-1">Jungle Retreat Cabina</h3>
+                            <p class="text-sm text-slate-400">📍 Puerto Viejo Jungle</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-sm text-slate-400 line-through">$75/night</p>
+                            <p class="text-2xl font-bold text-green-400">$64/night</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-slate-300 mb-4">Secluded 2BR cabina surrounded by nature, 5 min walk to beach.</p>
+                    <div class="flex gap-4 text-xs text-slate-400 mb-4">
+                        <span>🛏️ 2 Beds</span>
+                        <span>🚿 1 Bath</span>
+                        <span>👥 4 Guests</span>
+                        <span>🌿 Jungle</span>
+                    </div>
+                    <button onclick="bookProperty('Jungle Retreat', 64)" class="w-full bg-green-500 hover:bg-green-600 py-3 rounded-xl font-bold transition">
+                        Reserve with AI Bot
+                    </button>
+                </div>
+            </div>
+
+            <!-- Property 4 - Modern Apartment -->
+            <div class="property-card" data-location="santa-teresa">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=600&q=80" alt="Modern Apartment" class="property-img">
+                    <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                        AVAILABLE
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-3">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-1">Ocean View Apartment</h3>
+                            <p class="text-sm text-slate-400">📍 Santa Teresa Hills</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-sm text-slate-400 line-through">$120/night</p>
+                            <p class="text-2xl font-bold text-green-400">$102/night</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-slate-300 mb-4">Modern 2BR apartment with stunning sunset views & full kitchen.</p>
+                    <div class="flex gap-4 text-xs text-slate-400 mb-4">
+                        <span>🛏️ 2 Beds</span>
+                        <span>🚿 2 Baths</span>
+                        <span>👥 4 Guests</span>
+                        <span>🌅 Views</span>
+                    </div>
+                    <button onclick="bookProperty('Ocean View Apartment', 102)" class="w-full bg-green-500 hover:bg-green-600 py-3 rounded-xl font-bold transition">
+                        Reserve with AI Bot
+                    </button>
+                </div>
+            </div>
+
+            <!-- Property 5 - Surf House -->
+            <div class="property-card" data-location="santa-teresa">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&q=80" alt="Surf House" class="property-img">
+                    <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                        AVAILABLE
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-3">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-1">Surfer's Paradise House</h3>
+                            <p class="text-sm text-slate-400">📍 Santa Teresa Beach</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-sm text-slate-400 line-through">$95/night</p>
+                            <p class="text-2xl font-bold text-green-400">$81/night</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-slate-300 mb-4">Charming beach house steps from surf breaks. Outdoor shower & hammocks.</p>
+                    <div class="flex gap-4 text-xs text-slate-400 mb-4">
+                        <span>🛏️ 2 Beds</span>
+                        <span>🚿 1 Bath</span>
+                        <span>👥 5 Guests</span>
+                        <span>🏄 Surf</span>
+                    </div>
+                    <button onclick="bookProperty('Surfers Paradise', 81)" class="w-full bg-green-500 hover:bg-green-600 py-3 rounded-xl font-bold transition">
+                        Reserve with AI Bot
+                    </button>
+                </div>
+            </div>
+
+            <!-- Property 6 - Family Villa -->
+            <div class="property-card" data-location="puerto-viejo">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600&q=80" alt="Family Villa" class="property-img">
+                    <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                        AVAILABLE
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-3">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-1">Caribbean Family Villa</h3>
+                            <p class="text-sm text-slate-400">📍 Puerto Viejo Beach</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-sm text-slate-400 line-through">$150/night</p>
+                            <p class="text-2xl font-bold text-green-400">$128/night</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-slate-300 mb-4">Spacious 4BR villa with garden, BBQ area & walking distance to town.</p>
+                    <div class="flex gap-4 text-xs text-slate-400 mb-4">
+                        <span>🛏️ 4 Beds</span>
+                        <span>🚿 3 Baths</span>
+                        <span>👥 8 Guests</span>
+                        <span>🌳 Garden</span>
+                    </div>
+                    <button onclick="bookProperty('Caribbean Villa', 128)" class="w-full bg-green-500 hover:bg-green-600 py-3 rounded-xl font-bold transition">
+                        Reserve with AI Bot
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Amenities Section -->
+    <section id="amenities" class="max-w-7xl mx-auto px-6 py-20">
+        <div class="text-center mb-16">
+            <h2 class="text-5xl font-black mb-4">What's <span class="text-green-400">Included</span></h2>
+            <p class="text-xl text-slate-300">Premium amenities in every property</p>
+        </div>
+
+        <div class="grid md:grid-cols-4 gap-6">
+            <div class="glass rounded-2xl p-6 text-center">
+                <div class="feature-icon mx-auto mb-4">❄️</div>
+                <h3 class="font-bold mb-2">Air Conditioning</h3>
+                <p class="text-sm text-slate-400">Stay cool in tropical heat</p>
+            </div>
+            <div class="glass rounded-2xl p-6 text-center">
+                <div class="feature-icon mx-auto mb-4">📶</div>
+                <h3 class="font-bold mb-2">High-Speed WiFi</h3>
+                <p class="text-sm text-slate-400">Perfect for remote work</p>
+            </div>
+            <div class="glass rounded-2xl p-6 text-center">
+                <div class="feature-icon mx-auto mb-4">🍳</div>
+                <h3 class="font-bold mb-2">Full Kitchen</h3>
+                <p class="text-sm text-slate-400">Cook your own meals</p>
+            </div>
+            <div class="glass rounded-2xl p-6 text-center">
+                <div class="feature-icon mx-auto mb-4">🔒</div>
+                <h3 class="font-bold mb-2">24/7 Security</h3>
+                <p class="text-sm text-slate-400">Safe & secure stays</p>
+            </div>
+            <div class="glass rounded-2xl p-6 text-center">
+                <div class="feature-icon mx-auto mb-4">🧺</div>
+                <h3 class="font-bold mb-2">Laundry</h3>
+                <p class="text-sm text-slate-400">Washer in every unit</p>
+            </div>
+            <div class="glass rounded-2xl p-6 text-center">
+                <div class="feature-icon mx-auto mb-4">🏊</div>
+                <h3 class="font-bold mb-2">Pool Access</h3>
+                <p class="text-sm text-slate-400">Selected properties</p>
+            </div>
+            <div class="glass rounded-2xl p-6 text-center">
+                <div class="feature-icon mx-auto mb-4">🅿️</div>
+                <h3 class="font-bold mb-2">Free Parking</h3>
+                <p class="text-sm text-slate-400">On-site parking</p>
+            </div>
+            <div class="glass rounded-2xl p-6 text-center">
+                <div class="feature-icon mx-auto mb-4">🤖</div>
+                <h3 class="font-bold mb-2">AI Concierge</h3>
+                <p class="text-sm text-slate-400">24/7 chatbot support</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Form Section -->
+    <section id="booking" class="max-w-5xl mx-auto px-6 py-20">
+        <div class="booking-form">
+            <div class="text-center mb-8">
+                <span class="badge inline-block mb-4">🎁 SAVE 15% TODAY</span>
+                <h2 class="text-4xl font-black mb-4">Quick <span class="text-green-400">Booking</span></h2>
+                <p class="text-lg text-slate-300">Reserve your paradise getaway in seconds</p>
+            </div>
+
+            <form class="space-y-6" id="booking-form">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block mb-2 font-semibold">Full Name</label>
+                        <input type="text" required class="w-full bg-white/10 border border-white/30 rounded-xl py-3 px-4 focus:ring-2 focus:ring-green-400 outline-none">
+                    </div>
+                    <div>
+                        <label class="block mb-2 font-semibold">Email</label>
+                        <input type="email" required class="w-full bg-white/10 border border-white/30 rounded-xl py-3 px-4 focus:ring-2 focus:ring-green-400 outline-none">
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block mb-2 font-semibold">Check-in Date</label>
+                        <input type="date" required class="w-full bg-white/10 border border-white/30 rounded-xl py-3 px-4 focus:ring-2 focus:ring-green-400 outline-none">
+                    </div>
+                    <div>
+                        <label class="block mb-2 font-semibold">Check-out Date</label>
+                        <input type="date" required class="w-full bg-white/10 border border-white/30 rounded-xl py-3 px-4 focus:ring-2 focus:ring-green-400 outline-none">
+                    </div>
+                </div>
+
+                <div class="grid md:grid-
